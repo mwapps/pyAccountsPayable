@@ -1,0 +1,36 @@
+Create a company
+---
+tags:
+  - Company
+parameters:
+  - name: body
+    description: The body should contain all fields to create a company
+    in: body
+    required: true
+    schema:
+      type: object
+      required:
+        - "business_name"
+      properties:
+        business_name:
+          type: "string"
+          example: "Zapateria Los cien pies, SLR"
+
+responses:
+  201:
+    description: When a create process is successfully
+    schema:
+      $ref: "#/definitions/company_resp"
+
+  400:
+    description: Fails to proccess due to bad request data
+    schema:
+      $ref: "#/definitions/error"
+
+definitions:
+  company_resp:
+    type: "object"
+    description: "It represent the company response"
+    properties:
+      company:
+        $ref: "#/definitions/company"

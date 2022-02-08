@@ -1,0 +1,54 @@
+Reports - Documents report
+---
+tags:
+  - Reports
+parameters:
+  - in: query
+    name: company_id
+    required: true
+    description: The company id. Empty for query all companies documets
+    schema:
+      $ref: "#/definitions/company_id"
+  - in: query
+    name: supplier_id
+    required: true
+    description: The supplier id. Empty for query all suppliers documets
+    schema:
+      $ref: "#/definitions/company_id"
+  - in: query
+    name: document_number
+    required: true
+    description: The document number. Empty for query all documets
+    schema:
+      $ref: "#/definitions/document_number"
+  - in: query
+    name: from_date
+    required: true
+    description: The from date. Empty for query all documets
+    schema:
+      $ref: "#/definitions/from_date"
+  - in: query
+    name: to_date
+    required: true
+    description: The until date. Empty for query all documets
+    schema:
+      $ref: "#/definitions/to_date"
+
+responses:
+  200:
+    description: When a get request is successfully
+    schema:
+      type: "object"
+      description: "It represent the array documents response"
+      properties:
+        documents:
+          type: "array"
+          description: Array of documents
+          items:
+            $ref: "#/definitions/document"    
+
+  400:
+    description: Fails to proccess due to bad request data
+    schema:
+      $ref: "#/definitions/error"
+

@@ -1,0 +1,20 @@
+Delete a supplier by Id
+---
+tags:
+  - Supplier
+
+responses:
+  200:
+    description: When a delete request is successfully
+    schema:
+      type: "object"
+      properties:
+        message:
+          type: "string"
+          example: "Supplier was deleted"
+
+  404:
+    description: Supplier not found
+    schema:
+      $ref: "#/definitions/error"
+

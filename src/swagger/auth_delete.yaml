@@ -1,0 +1,34 @@
+Delete user
+---
+tags:
+  - Authentication
+parameters:
+  - name: body
+    description: The body should contain all fields to create a company
+    in: body
+    required: true
+    schema:
+      type: object
+      required:
+        - "email"
+      properties:
+        email:
+          $ref: "#/definitions/email"
+responses:
+  200:
+    description: When a delete process is successfully
+    schema:
+      $ref: "#/definitions/user_resp"
+
+  404:
+    description: Fails to proccess due to bad request data
+    schema:
+      $ref: "#/definitions/error"
+
+definitions:
+  user_resp:
+    type: "object"
+    properties:
+      message:
+        type: "string"
+        example: "The user was deleted"

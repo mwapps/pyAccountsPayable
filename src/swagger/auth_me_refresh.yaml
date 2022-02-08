@@ -1,0 +1,19 @@
+Refresh the token
+---
+tags:
+  - Authentication
+
+responses:
+  200:
+    description: When a get process is successfully
+    schema:
+      $ref: "#/definitions/user_token"
+
+
+definitions:
+  user_token:
+    type: "object"
+    description: "It represent the user response"
+    properties:
+      access:
+        $ref: "#/definitions/access"

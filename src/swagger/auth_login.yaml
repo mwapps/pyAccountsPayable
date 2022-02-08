@@ -1,0 +1,46 @@
+Login
+---
+tags:
+  - Authentication
+parameters:
+  - name: body
+    description: The body should contain all fields to create a company
+    in: body
+    required: true
+    schema:
+      type: object
+      required:
+        - "email"
+        - "password"
+      properties:
+        email:
+          $ref: "#/definitions/email"
+        password:
+          $ref: "#/definitions/password"
+responses:
+  201:
+    description: When a create process is successfully
+    schema:
+      $ref: "#/definitions/login_resp"
+
+  401:
+    description: Fails Unauthorized login
+    schema:
+      $ref: "#/definitions/error"
+
+definitions:
+  login_resp:
+    type: "object"
+    description: "It represent the login response"
+    properties:
+      User:
+        type: "object"
+        properties:
+          access:
+            $ref: "#/definitions/access"
+          refresh:
+            $ref: "#/definitions/access"
+          username:
+            $ref: "#/definitions/username"
+          email:
+            $ref: "#/definitions/email"

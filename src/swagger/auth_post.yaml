@@ -1,0 +1,48 @@
+Register new user
+---
+tags:
+  - Authentication
+parameters:
+  - name: body
+    description: The body should contain all fields to create a company
+    in: body
+    required: true
+    schema:
+      type: object
+      required:
+        - "email"
+        - "password"
+        - "username"
+      properties:
+        email:
+          $ref: "#/definitions/email"
+        username:
+          $ref: "#/definitions/username"
+        password:
+          $ref: "#/definitions/password"
+responses:
+  201:
+    description: When a create process is successfully
+    schema:
+      $ref: "#/definitions/user_create"
+
+  400:
+    description: Fails to proccess due to bad request data
+    schema:
+      $ref: "#/definitions/error"
+
+definitions:
+  user_create:
+    type: "object"
+    description: "It represent the user response"
+    properties:
+      message:
+        type: "string"
+        example: "User created"
+      User:
+        type: "object"
+        properties:
+          username:
+            $ref: "#/definitions/username"
+          email:
+            $ref: "#/definitions/email"

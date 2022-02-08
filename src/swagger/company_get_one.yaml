@@ -1,0 +1,23 @@
+Get a company by Id
+---
+tags:
+  - Company
+
+responses:
+  200:
+    description: When a get request is successfully
+    schema:
+      $ref: "#/definitions/company_resp"
+
+  404:
+    description: Company not found
+    schema:
+      $ref: "#/definitions/error"
+
+definitions:
+  company_resp:
+    type: "object"
+    description: "It represent the company response"
+    properties:
+      company:
+        $ref: "#/definitions/company"

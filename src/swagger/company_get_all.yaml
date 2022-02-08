@@ -1,0 +1,18 @@
+Get all companies
+---
+tags:
+  - Company
+
+responses:
+  200:
+    description: When a get request is successfully
+    schema:
+      type: "object"
+      description: "It represent the company response"
+      properties:
+        companies:
+          type: "array"
+          description: Array of companies
+          items:
+            $ref: "#/definitions/company"
+

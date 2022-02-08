@@ -1,0 +1,36 @@
+Rules - CRUD over rules table
+---
+tags:
+  - Rule
+parameters:
+  - name: body
+    description: The body should contain all fields to make a transaction
+    in: body
+    required: true
+    schema:
+      type: object
+      required:
+        - "rule_description"
+      properties:
+        rule_description:
+          type: "string"
+          example: "Purchase"
+
+responses:
+  200:
+    description: When a transaction is successfully completed 
+    schema:
+      $ref: "#/definitions/rule_resp"
+
+  400:
+    description: Fails to proccess due to bad request data
+    schema:
+      $ref: "#/definitions/error"
+
+definitions:
+  rule_resp:
+    type: "object"
+    description: "It represent the rule response"
+    properties:
+      rule:
+        $ref: "#/definitions/rule"

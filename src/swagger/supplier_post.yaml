@@ -1,0 +1,36 @@
+Create a supplier
+---
+tags:
+  - Supplier
+parameters:
+  - name: body
+    description: The body should contain all fields to create a supplier
+    in: body
+    required: true
+    schema:
+      type: object
+      required:
+        - "supplier_name"
+      properties:
+        supplier_name:
+          type: "string"
+          example: "Zapateria Los cien pies, SLR"
+
+responses:
+  201:
+    description: When a create process is successfully
+    schema:
+      $ref: "#/definitions/supplier_resp"
+
+  400:
+    description: Fails to proccess due to bad request data
+    schema:
+      $ref: "#/definitions/error"
+
+definitions:
+  supplier_resp:
+    type: "object"
+    description: "It represent the supplier response"
+    properties:
+      supplier:
+        $ref: "#/definitions/supplier"

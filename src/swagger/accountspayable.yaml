@@ -1,0 +1,84 @@
+Accounts Payable - Make transaction
+---
+tags:
+  - Make transaction
+parameters:
+  - name: body
+    description: The body should contain all fields to make a transaction
+    in: body
+    required: true
+    schema:
+      type: object
+      required:
+        - "company_id"
+        - "supplier_id"
+        - "document_number"
+        - "rule_id"
+        - "amount"
+        - "issue_date"
+        - "due_date"
+        - "reference"
+      properties:
+        company_id:
+          type: "integer"
+          example: "2"
+        supplier_id:
+          type: "integer"
+          example: "4"
+        document_number:
+          $ref: "#/definitions/document_number"
+        rule_id:
+          type: "integer"
+          example: "10"
+        amount:
+          $ref: "#/definitions/amount"
+        issue_date:
+          $ref: "#/definitions/issue_date"
+        due_date:
+          $ref: "#/definitions/due_date"
+        reference:
+          $ref: "#/definitions/reference"
+
+responses:
+  200:
+    description: When a transaction is successfully completed 
+    schema:
+      $ref: "#/definitions/movement_resp"
+
+  400:
+    description: Fails to proccess due to bad request data
+    schema:
+      $ref: "#/definitions/error"
+
+definitions:
+  movement_resp:
+    type: "object"
+    description: "It represent the movement response"
+    properties:
+      movement:
+        $ref: "#/definitions/movement"    
+  movement:
+    type: "object"
+    properties:
+      amount:
+        $ref: "#/definitions/amount"    
+      company:
+        $ref: "#/definitions/company"    
+      supplier:
+        $ref: "#/definitions/supplier"    
+      user:
+        $ref: "#/definitions/user"
+      document_number:
+        $ref: "#/definitions/document_number"
+      issue_date:
+        $ref: "#/definitions/issue_date"
+      due_date:
+        $ref: "#/definitions/due_date"
+      movement_date:
+        $ref: "#/definitions/movement_date"
+      movement_id:
+        $ref: "#/definitions/movement_id"
+      reference:
+        $ref: "#/definitions/reference"
+      rule:
+        $ref: "#/definitions/rule"

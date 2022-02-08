@@ -1,0 +1,18 @@
+Get all suppliers
+---
+tags:
+  - Supplier
+
+responses:
+  200:
+    description: When a get request is successfully
+    schema:
+      type: "object"
+      description: "It represent the supplier response"
+      properties:
+        suppliers:
+          type: "array"
+          description: Array of suppliers
+          items:
+            $ref: "#/definitions/supplier"
+

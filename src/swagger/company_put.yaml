@@ -1,0 +1,45 @@
+Update a company
+---
+tags:
+  - Company
+parameters:
+  - name: body
+    description: The body should contain all fields to update a company
+    in: body
+    required: true
+    schema:
+      type: object
+      required:
+        - "business_name"
+      properties:
+        business_name:
+          type: "string"
+          example: "Zapateria Los cien pies, SLR"
+
+responses:
+  200:
+    description: When a updated process is successfully
+    schema:
+      $ref: "#/definitions/company_resp"
+
+  400:
+    description: Fails to proccess due to bad request data
+    schema:
+      $ref: "#/definitions/error"
+
+  404:
+    description: Company not found
+    schema:
+      type: object
+      properties:
+        message:
+          type: "string"
+          example: "Company not found"
+
+definitions:
+  company_resp:
+    type: "object"
+    description: "It represent the company response"
+    properties:
+      company:
+        $ref: "#/definitions/company"

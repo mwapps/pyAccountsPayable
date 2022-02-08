@@ -1,0 +1,23 @@
+Get a supplier by Id
+---
+tags:
+  - Supplier
+
+responses:
+  200:
+    description: When a get request is successfully
+    schema:
+      $ref: "#/definitions/supplier_resp"
+
+  404:
+    description: Supplier not found
+    schema:
+      $ref: "#/definitions/error"
+
+definitions:
+  supplier_resp:
+    type: "object"
+    description: "It represent the supplier response"
+    properties:
+      supplier:
+        $ref: "#/definitions/supplier"
