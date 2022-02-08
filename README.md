@@ -1,31 +1,53 @@
+
 pyAccountsPayable
 ==============================
 Accounts payable project developed with the Flask framework for Python
 
+Overview
+------------
+This project was created for educational purposes. The goal is to create a backend component. The accounts payable system is a basic system but with all fully operational that exposes all functionality via REST API that can be used by any Frontend component.
+
+We deciced use Flask framework because is very simple to develope and separate the diferent logical layers of the programming.
+
+
 Getting Started
 ------------
 
-##Setting up the environment
+Setting up the environment
+---------
 
-Create the environment using the virtualenv tool
+ - Create the environment using the virtualenv tool
+
+```
 virtualenv -p python accountsPayable
+```
 
-Installing project dependencies from a requirements.txt file
+ - Installing project dependencies from a requirements.txt file
+
+```
 pip install -r requirements.txt
+```
+Running the application
+---------
 
-##Running the application
+- Activate the virtualenv environment
 
-Activate the virtualenv environment
-`accountsPayable\Scripts\activate`
+```
+accountsPayable\Scripts\activate
+```
+- Setting environment variables
 
-Setting environment variables
-`set FLASK_APP=setup`
-`set FLASK_ENV=development`
-`set APP_SETTINGS_MODULE=config.local`
-`echo %FLASK_APP%`
+```
+set FLASK_APP=setup
+set FLASK_ENV=development
+set APP_SETTINGS_MODULE=config.local
+```
 
-Start the application
-`python -m flask run`
+- Start the application
+
+```
+python -m flask run
+```
 
 Project Organization
 ------------
@@ -53,3 +75,9 @@ Project Organization
      
     
 --------
+
+License
+------------
+This project uses the following license: [GNU GENERAL PUBLIC LICENSE](<link>).
+
+#python #flask #mvc 
